@@ -1,6 +1,6 @@
 # Welcome to Stellar Export
 
-Exports stellar payments in a format compatible with [Ledgify](https://ledgifi.com)
+Exports stellar payments in a format compatible with [Ledgifi](https://ledgifi.com)
 
 ## Installation
 
