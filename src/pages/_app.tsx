@@ -17,28 +17,19 @@ const inconsolata = Inconsolata({ subsets: ['latin'] })
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      {/* TODO SEO */}
       <DefaultSeo
-        // dangerouslySetAllPagesToNoFollow={!env.isProduction}
-        // dangerouslySetAllPagesToNoIndex={!env.isProduction}
-        defaultTitle="Soroban React Dapp Boilerplate" // TODO
-        titleTemplate="" // TODO
-        description="Soroaban-based Smart Contract & DApp Development Boilerplate" // TODO
+        defaultTitle="Stellar Export"
+        titleTemplate=""
+        description="Export your stellar transactions"
         openGraph={{
           type: 'website',
           locale: 'en',
-          // url: env.url,
-          site_name: 'soroban-react-dapp', // TODO
+          site_name: 'stellar-export',
           images: [
-            // {
-            //   url: `${env.url}/images/cover.jpg`, // TODO
-            //   width: 1200,
-            //   height: 675,
-            // },
           ],
         }}
         twitter={{
-          handle: '', // TODO
+          handle: '',
         }}
       />
 
