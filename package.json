@@ -36,6 +36,7 @@
     "@soroban-react/xbull": "^9.0.4",
     "@stellar/stellar-sdk": "^11.3.0",
     "@stellar/wallet-sdk": "^0.11.2",
+    "@vercel/analytics": "^1.2.2",
     "file-saver": "^2.0.5",
     "framer-motion": "^10.16.4",
     "next": "^13.5.6",
