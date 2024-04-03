@@ -13,29 +13,29 @@ export interface TransactionType {
 }
 
 export enum TxType {
-  TRANSFER,
-  TRADE,
-  EXPENSE,
-  INCOME
+  TRANSFER = "TRANSFER",
+  TRADE = "TRADE",
+  EXPENSE = "EXPENSE",
+  INCOME = "INCOME"
 }
 
 export enum TxSubType {
-  DEPOSIT,
-  WITHDRAWAL,
-  INTEREST,
-  REWARD,
-  AIRDROP,
-  GIFT,
-  STAKING,
-  MINING,
-  FORK,
-  PAYMENT,
-  REBATE,
-  FEE,
-  LOST,
-  STOLEN,
-  DONATION,
-  BUY,
-  SELL,
-  "N/A",
+  DEPOSIT = "DEPOSIT",
+  WITHDRAWAL = "WITHDRAWAL",
+  INTEREST = "INTEREST",
+  REWARD = "REWARD",
+  AIRDROP = "AIRDROP",
+  GIFT = "GIFT",
+  STAKING = "STAKING",
+  MINING = "MINING",
+  FORK = "FORK",
+  PAYMENT = "PAYMENT",
+  REBATE = "REBATE",
+  FEE = "FEE",
+  LOST = "LOST",
+  STOLEN = "STOLEN",
+  DONATION = "DONATION",
+  BUY = "BUY",
+  SELL = "SELL",
+  "N/A" = "N/A"
 }
