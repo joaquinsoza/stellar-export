@@ -6,7 +6,7 @@ import Papa from 'papaparse';
 import { saveAs } from 'file-saver';
 import * as XLSX from 'xlsx';
 import { TxType, type TransactionType, TxSubType } from '@/types/ledgifi';
-import { type HorizonApi } from '@stellar/stellar-sdk/lib/horizon';
+import { HorizonApi } from '@stellar/stellar-sdk/lib/horizon';
 import { Box, Button, Flex, Spinner, Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
 
 export const Transactions = () => {
@@ -72,13 +72,32 @@ export const Transactions = () => {
   };
   
 
-  const transformPayment = (payment: HorizonApi.PaymentOperationResponse, address: string) => {
+  const transformPayment = (payment: HorizonApi.PaymentOperationResponse | HorizonApi.CreateAccountOperationResponse, address: string) => {
+    console.log('🚀 « payment:', payment);
+    if (payment.type === "create_account") {
+      return {
+        timestamp: payment.created_at,
+        received: payment.starting_balance,
+        receivedCurrency: "XLM",
+        sent: '',
+        sentCurrency: '',
+        fee: '0',
+        feeCurrency: 'XLM',
+        txType: TxType.INCOME,
+        txSubType: TxSubType['N/A'],
+        importSource: 'Stellar Network',
+        importSourceId: payment.transaction_hash,
+        memo: '',
+        account: address,
+      };
+    }
+
     return {
       timestamp: payment.created_at,
-      received: payment.to === address ? payment.amount : '0',
-      receivedCurrency: payment.asset_type === 'native' ? 'XLM' : payment.asset_code,
-      sent: payment.from === address ? payment.amount : '0',
-      sentCurrency: payment.asset_type === 'native' ? 'XLM' : payment.asset_code,
+      received: payment.to === address ? payment.amount : '',
+      receivedCurrency: payment.to === address ? payment.asset_type === 'native' ? 'XLM' : payment.asset_code : '',
+      sent: payment.from === address ? payment.amount : '',
+      sentCurrency: payment.from === address ? payment.asset_type === 'native' ? 'XLM' : payment.asset_code: '',
       fee: '0',
       feeCurrency: 'XLM',
       txType: payment.to === address ? TxType.INCOME : TxType.TRANSFER,
